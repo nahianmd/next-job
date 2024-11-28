@@ -4,6 +4,10 @@ import './globals.css';
 import React from 'react';
 import ProviderWrapper from '@/contexts/ProviderWrapper';
 
+const inter = localFont({
+  src: './fonts/InterVariable.woff2',
+  variable: '--font-inter'
+});
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
   variable: '--font-geist-sans',
@@ -27,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${inter.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ProviderWrapper>{children}</ProviderWrapper>
       </body>
     </html>
