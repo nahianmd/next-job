@@ -1,5 +1,5 @@
 import MainLayout from '@/layouts/MainLayout';
-import Landing from '@/app/landing';
+import Landing from '@/views/landing';
 
 export default function Home() {
   return (

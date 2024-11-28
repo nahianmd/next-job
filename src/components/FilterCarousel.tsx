@@ -1,33 +1,22 @@
 'use client';
 
 import * as React from 'react';
-import { useRef, useState } from 'react';
-import Chips from '@/components/Chips';
+import { useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import RoundChip from '@/components/RoundChip';
+import { toTitleCase } from '@/utils/helper';
 
-export function FilterCarousel() {
+interface Props {
+  filters: Record<string, string>;
+  action: (key: string, value: string) => void;
+}
+
+export function FilterCarousel({ filters, action }: Props) {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  const [items, setItems] = useState([
-    { id: 1, label: 'React' },
-    { id: 2, label: 'TypeScript' },
-    { id: 3, label: 'Tailwind' },
-    { id: 4, label: 'Next.js' },
-    { id: 5, label: 'Node.js' },
-    { id: 6, label: 'GraphQL' },
-    { id: 7, label: 'PostgreSQL' },
-    { id: 8, label: 'MongoDB' },
-    { id: 9, label: 'Redis' },
-    { id: 10, label: 'Docker' },
-    { id: 10, label: 'Docker' },
-    { id: 10, label: 'Docker' },
-    { id: 10, label: 'Docker' },
-    { id: 10, label: 'Docker' }
-  ]);
-
-  const removeFilter = (id: number) => {
-    setItems(items.filter((item) => item.id !== id));
+  const removeFilter = (key: string) => {
+    action(key, '');
   };
 
   const scrollLeft = () => {
@@ -71,9 +60,11 @@ export function FilterCarousel() {
         }}
       >
         <div className="flex space-x-4 py-4 min-w-0">
-          {items.map((item, index) => (
-            <Chips key={index} label={item.label} onRemove={() => removeFilter(item.id)} />
-          ))}
+          {Object.entries(filters).map(([key, value]) => {
+            if (!value || key === 'page' || key === 'limit') return null;
+
+            return <RoundChip key={key} label={toTitleCase(value.replace(/_/g, ' '))} onRemove={() => removeFilter(key)} />;
+          })}
         </div>
       </div>
     </div>

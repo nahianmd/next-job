@@ -71,3 +71,17 @@ export type CreateJobInput = Omit<Job, 'id' | 'postedDate' | 'updatedDate'>;
 
 // Type for updating an existing job
 export type UpdateJobInput = Partial<CreateJobInput>;
+
+export interface JobFilterPayload {
+  jobType?: JobType;
+  experienceLevel?: ExperienceLevel;
+  workLocation?: WorkLocation;
+  skills?: string[];
+  department?: string;
+  salaryMin?: number;
+  salaryMax?: number;
+  limit?: number;
+  pageNo?: number;
+
+  [key: string]: string | undefined | any;
+}

@@ -1,29 +1,18 @@
-import React from 'react';
-import { FilterCarousel } from '@/components/FilterCarousel';
-import { Button } from '@/components/ui/button';
-import { SlidersHorizontal } from 'lucide-react';
+import { Suspense } from 'react';
+import JobList from '@/app/(main)/jobs/JobList';
+import JobFilters from '@/app/(main)/jobs/JobFilters';
 
-const Page = () => {
+// This is a Server Component
+export default function JobsPage({ searchParams = {} }: { searchParams: { [key: string]: string | undefined } }) {
   return (
-    <div className="flex flex-1 flex-col gap-4">
-      <div className="flex w-full items-center gap-4 pr-4">
-        <div className="relative flex-1 min-w-0">
-          {/* min-w-0 prevents flex child from overflowing */}
-          <FilterCarousel />
-        </div>
-        <Button variant="outline" className="flex items-center gap-2 whitespace-nowrap shrink-0">
-          <SlidersHorizontal className="h-4 w-4" />
-          Filter
-        </Button>
-      </div>
-      <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-        <div className="aspect-video rounded-xl bg-muted/50" />
-        <div className="aspect-video rounded-xl bg-muted/50" />
-        <div className="aspect-video rounded-xl bg-muted/50" />
-      </div>
-      <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" />
-    </div>
-  );
-};
+    <main className="p-4 max-w-7xl mx-auto">
+      <h1 className="text-2xl font-bold mb-6">Job Listings</h1>
 
-export default Page;
+      <JobFilters />
+
+      <Suspense fallback={<div>Loading jobs...</div>}>
+        <JobList searchParams={searchParams} />
+      </Suspense>
+    </main>
+  );
+}

@@ -1,23 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { ExperienceLevel, JobType, WorkLocation } from '@/types/job';
 import { mockJobs } from '@/_mockApis/job';
-
-interface FilterParams {
-  jobType?: JobType;
-  experienceLevel?: ExperienceLevel;
-  workLocation?: WorkLocation;
-  skills?: string[];
-  department?: string;
-  salaryMin?: number;
-  salaryMax?: number;
-  limit?: number;
-  pageNo?: number;
-}
+import { JobFilterPayload } from '@/types/job';
 
 // Jobs By Filter
 export async function POST(request: NextRequest) {
   try {
-    const filters: FilterParams = await request.json();
+    const filters: JobFilterPayload = await request.json();
 
     const limit = filters.limit || 10;
     const pageNo = filters.pageNo || 1;

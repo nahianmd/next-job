@@ -2,6 +2,7 @@
 
 import { useJobFilters } from '@/hooks/useJobFilters';
 import { ExperienceLevel, JobType, WorkLocation } from '@/types/job';
+import { FilterCarousel } from '@/components/FilterCarousel';
 
 // We create a component for each filter to keep our code organized and maintainable
 function FilterSelect({
@@ -91,24 +92,7 @@ export default function JobFilters() {
       {isPending && <div className="mt-4 text-sm text-blue-600">Updating results...</div>}
 
       {/* Active filters display */}
-      <div className="mt-4 flex flex-wrap gap-2">
-        {Object.entries(filters).map(([key, value]) => {
-          if (!value || key === 'page' || key === 'limit') return null;
-
-          return (
-            <span
-              key={key}
-              className="inline-flex items-center px-3 py-1 rounded-full
-                       bg-blue-50 text-blue-700 text-sm"
-            >
-              {value.replace(/_/g, ' ')}
-              <button onClick={() => updateFilter(key, '')} disabled={isPending} className="ml-2 focus:outline-none disabled:opacity-50">
-                ×
-              </button>
-            </span>
-          );
-        })}
-      </div>
+      <FilterCarousel filters={filters} action={updateFilter} />
     </div>
   );
 }

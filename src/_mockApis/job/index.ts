@@ -1,106 +1,62 @@
 // Mock data for jobs
-import { ExperienceLevel, Job, JobType, WorkLocation } from '@/types/job';
+import { Job } from '@/types/job';
 import services from '@/utils/mockAdapter';
-import { KeyedObject } from '@/types';
+import { jobs } from '@/_mockApis/job/data';
 
-const mockJobs: Job[] = [
-  {
-    id: '1',
-    title: 'Senior React Developer',
-    company: {
-      id: 'c1',
-      name: 'TechCorp Solutions',
-      logo: '/api/placeholder/100/100',
-      website: 'https://techcorp.com',
-      location: 'San Francisco, CA'
-    },
-    description: 'We are looking for an experienced React developer to join our dynamic team...',
-    requirements: ['Strong experience with React and TypeScript', 'Experience with Next.js', 'Understanding of RESTful APIs'],
-    responsibilities: [
-      'Develop new features for our web application',
-      'Collaborate with the design team',
-      'Write clean, maintainable code'
-    ],
-    qualifications: [`'Bachelor's degree in Computer Science or related field'`, '5+ years of experience in frontend development'],
-    skills: ['React', 'TypeScript', 'Next.js', 'Redux', 'REST APIs'],
-    jobType: JobType.FULL_TIME,
-    experienceLevel: ExperienceLevel.SENIOR,
-    workLocation: WorkLocation.HYBRID,
-    location: 'San Francisco, CA',
-    salary: {
-      min: 120000,
-      max: 180000,
-      currency: 'USD',
-      period: 'YEARLY'
-    },
-    benefits: ['Health Insurance', '401(k) matching', 'Unlimited PTO'],
-    postedDate: new Date('2024-11-20'),
-    updatedDate: new Date('2024-11-20'),
-    isActive: true,
-    numberOfVacancies: 2,
-    department: 'Engineering'
-  },
-  {
-    id: '2',
-    title: 'Junior Frontend Developer',
-    company: {
-      id: 'c2',
-      name: 'StartupX',
-      logo: '/api/placeholder/100/100',
-      location: 'Remote'
-    },
-    description: 'Looking for a passionate junior developer to join our growing team...',
-    requirements: ['Basic understanding of React', 'Knowledge of HTML, CSS, and JavaScript', 'Willingness to learn'],
-    responsibilities: [
-      'Build user interfaces using React',
-      'Work with senior developers to improve your skills',
-      'Participate in code reviews'
-    ],
-    qualifications: ['Computer Science degree or equivalent', '1+ year of programming experience'],
-    skills: ['React', 'JavaScript', 'HTML', 'CSS'],
-    jobType: JobType.FULL_TIME,
-    experienceLevel: ExperienceLevel.JUNIOR,
-    workLocation: WorkLocation.REMOTE,
-    location: 'Remote',
-    salary: {
-      min: 60000,
-      max: 80000,
-      currency: 'USD',
-      period: 'YEARLY'
-    },
-    postedDate: new Date('2024-11-25'),
-    updatedDate: new Date('2024-11-25'),
-    isActive: true,
-    numberOfVacancies: 1,
-    department: 'Engineering'
-  }
-];
+export const mockJobs: Job[] = jobs;
 
-services.onGet('/api/simple-card/list').reply(200, { mockJobs });
+// Jobs
+services.onGet('/api/getJobs').reply(200, { mockJobs });
 
-services.onPost('/api/simple-card/filter').reply((config) => {
+// Job details
+services.onGet('/api/job/:id').reply((config) => {
   try {
-    const { key } = JSON.parse(config.data);
+    const { id } = config.params;
+    const job = mockJobs.find((job) => job.id === id);
+    if (!job) {
+      return [404, { message: 'Job not found' }];
+    }
+    return [200, job];
+  } catch (err) {
+    console.error(err);
+    return [500, { message: 'Internal server error' }];
+  }
+});
 
-    const results = mockJobs.filter((row: KeyedObject) => {
+// Jobs by filter
+services.onPost('/api/getJobs/filter').reply((config) => {
+  try {
+    const { jobType, experienceLevel, skills, workLocation, department, salaryMin, salaryMax, deadline, limit, pageNo } = JSON.parse(
+      config.data
+    );
+
+    const results = mockJobs.filter((job) => {
       let matches = true;
 
-      const properties = ['jobType', 'experienceLevel', 'skills', 'workLocation', 'department'];
-      let containsQuery = false;
+      if (jobType && job.jobType !== jobType) matches = false;
 
-      properties.forEach((property) => {
-        if (row[property].toString().toLowerCase().includes(key.toString().toLowerCase())) {
-          containsQuery = true;
-        }
-      });
+      if (experienceLevel && job.experienceLevel !== experienceLevel) matches = false;
 
-      if (!containsQuery) {
+      if (skills && !job.skills.some((skill) => skills.includes(skill))) matches = false;
+
+      if (workLocation && job.workLocation !== workLocation) matches = false;
+
+      if (department && job.department !== department) matches = false;
+
+      if ((salaryMin && job.salary?.min && job.salary?.min < salaryMin) || (salaryMax && job.salary?.max && job.salary?.max > salaryMax))
         matches = false;
-      }
+
+      if (deadline && job.applicationDeadline && new Date(job.applicationDeadline) > new Date(deadline)) matches = false;
+
       return matches;
     });
 
-    return [200, { results }];
+    const totalData = results.length;
+    const totalPages = Math.ceil(totalData / limit);
+    const startIndex = (pageNo - 1) * limit;
+    const paginatedResults = results.slice(startIndex, startIndex + limit);
+
+    return [200, { results: paginatedResults, totalData, totalPages, currentPage: pageNo }];
   } catch (err) {
     console.error(err);
     return [500, { message: 'Internal server error' }];

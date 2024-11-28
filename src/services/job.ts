@@ -1,12 +1,22 @@
-// export const getUserListWithPagination = async (data: PaginationDTO) => {
-//   const response = await axiosServices({
-//     url: `/api/v1/administration/getUserList`,
-//     method: 'post',
-//     data
-//   });
-//   return response?.data?._value;
-// };
+import axios from '@/utils/axios';
+import { JobFilterPayload } from '@/hooks/consume_api/query/useGetJobsByFilter';
 
+export const getJobsByFilter = async (data: JobFilterPayload) => {
+  const response = await axios({
+    url: `/api/jobs`,
+    method: 'post',
+    data
+  });
+  return response?.data;
+};
+
+export const getJobDetails = async (jobId: string) => {
+  const response = await axios({
+    url: `/api/job/${jobId}`,
+    method: 'get'
+  });
+  return response.data;
+};
 
 // export const createMenu = async (data: any) => {
 //   return axiosServices({
@@ -14,12 +24,4 @@
 //     method: 'post',
 //     data
 //   });
-// };
-
-// export const getBatchDetail = async (id: string) => {
-//   const response = await axiosServices({
-//     url: `/api/v1/batch/getBatchById/${id}`,
-//     method: 'get'
-//   });
-//   return response?.data?._value;
 // };

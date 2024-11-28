@@ -7,7 +7,7 @@ interface Props {
   label: string;
 }
 
-const Chips = ({ onRemove, label }: Props) => {
+const RectangleChip = ({ onRemove, label }: Props) => {
   return (
     <Badge variant="secondary" className="px-3 py-1 rounded text-sm font-medium flex items-center gap-1 hover:bg-secondary/80">
       {label}
@@ -18,4 +18,4 @@ const Chips = ({ onRemove, label }: Props) => {
   );
 };
 
-export default Chips;
+export default RectangleChip;

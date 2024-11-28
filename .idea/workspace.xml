@@ -5,23 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="257375b9-20f6-40d5-9aad-2e5bfa4c4ba0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/_mockApis/job/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Chips.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/FilterCarousel.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/react_query/query-client-configuration.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/react_query/query-keys.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/job.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/types/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/types/job.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/axios.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/mockAdapter.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.env.local" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/_mockApis/job/data.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/(main)/jobs/JobFilters.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/(main)/jobs/JobList.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/api/jobs/[id]/route.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/api/jobs/route.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/RoundChip.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/SearchBar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/consume_api/query/useGetJobsByFilter.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/useJobFilters.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/helper.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/landing/FeaturedJobs.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/landing/Hero.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/landing/JobCategories.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/landing/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/_mockApis/job/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/_mockApis/job/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/(main)/jobs/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(main)/jobs/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/Navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/MainLayout/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/MainLayout/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/landing.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Chips.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RectangleChip.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FilterCarousel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FilterCarousel.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/react_query/query-client-configuration.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/react_query/query-client-configuration.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/job.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/job.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/job.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/job.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,37 +56,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
-    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;22.4.0&quot;,
-    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;22.4.2&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/nahian/personal/projects/next-job/src/utils&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;/home/nahian/.nvm/versions/node/v22.4.0/bin/node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/home/nahian/personal/projects/next-job/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/home/nahian/personal/projects/next-job/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "dev",
+    "javascript.nodejs.core.library.configured.version": "22.4.0",
+    "javascript.nodejs.core.library.typings.version": "22.4.2",
+    "last_opened_file_path": "/home/nahian/personal/projects/next-job",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "/home/nahian/.nvm/versions/node/v22.4.0/bin/node",
+    "nodejs_package_manager_path": "yarn",
+    "prettierjs.PrettierConfiguration.Package": "/home/nahian/personal/projects/next-job/node_modules/prettier",
+    "settings.editor.selected.configurable": "actions.on.save",
+    "ts.external.directory.path": "/home/nahian/personal/projects/next-job/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/views/jobs" />
       <recent name="$PROJECT_DIR$/src/utils" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/app/(main)" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/layouts/MinimalLayout" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/(main)/jobs" />
       <recent name="$PROJECT_DIR$/src/hooks" />
       <recent name="$PROJECT_DIR$/src/app" />
       <recent name="$PROJECT_DIR$" />
@@ -106,7 +118,8 @@
       <workItem from="1732786729776" duration="61000" />
       <workItem from="1732786908461" duration="1498000" />
       <workItem from="1732790941342" duration="9955000" />
-      <workItem from="1732811465125" duration="545000" />
+      <workItem from="1732811465125" duration="3707000" />
+      <workItem from="1732815180631" duration="13983000" />
     </task>
     <servers />
   </component>
