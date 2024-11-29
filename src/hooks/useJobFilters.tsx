@@ -6,7 +6,7 @@ import { JobFilterPayload } from '@/types/job';
 export const PAGE_SIZE_OPTIONS = [10, 15, 25, 50];
 export const DEFAULT_PAGE_SIZE = 15;
 
-export function useJobFilters(initialFilters: JobFilterPayload = {}) {
+export function useJobFilters() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [isPending, startTransition] = useTransition();

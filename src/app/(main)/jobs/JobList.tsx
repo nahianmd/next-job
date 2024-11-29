@@ -1,4 +1,6 @@
 import { Job } from '@/types/job';
+import JobCard from '@/components/JobCard';
+import Pagination from '@/components/Pagination';
 
 interface JobListPageProps {
   jobs: Job[];
@@ -30,37 +32,13 @@ export default async function JobList({ searchParams }: { searchParams: { [key: 
 
     return (
       <div className="space-y-6">
-        {jobs.map((job: Job) => (
-          <div key={job.id} className="p-4 border rounded-lg shadow">
-            <div className="flex items-start justify-between">
-              <div>
-                <h2 className="text-xl font-semibold">{job.title}</h2>
-                <p className="text-gray-600">{job.company.name}</p>
-                <p className="text-gray-500">{job.location}</p>
-              </div>
-              <div className="text-right">
-                <p className="text-green-600">
-                  ${job.salary ? job.salary.min.toLocaleString() : '0.00'} - ${job.salary ? job.salary.max.toLocaleString() : '0.00'}
-                </p>
-                <p className="text-gray-500">{job.jobType}</p>
-              </div>
-            </div>
-
-            <div className="mt-4">
-              <p className="text-gray-700">{job.description}</p>
-            </div>
-
-            <div className="mt-4 flex flex-wrap gap-2">
-              {job.skills.map((skill) => (
-                <span key={skill} className="px-2 py-1 bg-gray-100 rounded-full text-sm">
-                  {skill}
-                </span>
-              ))}
-            </div>
+        <div className={'ml-4'}>We found {metadata.totalJobs} jobs</div>
+        {jobs.map((job) => (
+          <div key={job.id}>
+            <JobCard job={job} size={'long'} />
           </div>
         ))}
-
-        {/* Pagination component would go here */}
+        <Pagination totalPages={metadata.totalPages} totalItems={metadata.totalJobs} />
       </div>
     );
   } catch (error) {
