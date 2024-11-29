@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="257375b9-20f6-40d5-9aad-2e5bfa4c4ba0" name="Changes" comment="" />
+    <list default="true" id="257375b9-20f6-40d5-9aad-2e5bfa4c4ba0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(main)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(main)/layout.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,6 +15,9 @@
   </component>
   <component name="FormatOnSaveOptions">
     <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="OptimizeOnSaveOptions">
     <option name="myRunOnSave" value="true" />
@@ -27,9 +33,11 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "dev",
     "javascript.nodejs.core.library.configured.version": "22.4.0",
     "javascript.nodejs.core.library.typings.version": "22.4.2",
-    "last_opened_file_path": "/home/nahian/personal/projects/next-job/src/app/(main)",
+    "last_opened_file_path": "/home/nahian/personal/projects/next-job/src/hooks",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
@@ -46,15 +54,18 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/app/(main)" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/layouts/MinimalLayout" />
-      <recent name="$PROJECT_DIR$/src/layouts/DashboardLayout" />
+      <recent name="$PROJECT_DIR$/src/hooks" />
+      <recent name="$PROJECT_DIR$/src/utils" />
+      <recent name="$PROJECT_DIR$/src/_mockApis" />
+      <recent name="$PROJECT_DIR$/src/store" />
+      <recent name="$PROJECT_DIR$/src/types" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/(minimal)" />
+      <recent name="$PROJECT_DIR$/src/app/(main)/jobs" />
+      <recent name="$PROJECT_DIR$/src/hooks" />
       <recent name="$PROJECT_DIR$/src/app" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/components/layout" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -77,7 +88,12 @@
       <workItem from="1732688061959" duration="2834000" />
       <workItem from="1732697325710" duration="7085000" />
       <workItem from="1732716452186" duration="18754000" />
-      <workItem from="1732773522741" duration="3108000" />
+      <workItem from="1732773522741" duration="8706000" />
+      <workItem from="1732786729776" duration="61000" />
+      <workItem from="1732786908461" duration="1498000" />
+      <workItem from="1732790941342" duration="9955000" />
+      <workItem from="1732811465125" duration="3707000" />
+      <workItem from="1732815180631" duration="33457000" />
     </task>
     <servers />
   </component>

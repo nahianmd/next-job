@@ -2,6 +2,7 @@
 
 import React, { ReactNode, useEffect, useState } from 'react';
 import { ThemeProvider } from '@/contexts/ThemeProvider';
+import { JWTProvider as AuthProvider } from '@/contexts/JWTContext';
 
 export default function ProviderWrapper({ children }: { children: ReactNode }) {
   const [mounted, setMounted] = useState(false);
@@ -16,7 +17,7 @@ export default function ProviderWrapper({ children }: { children: ReactNode }) {
 
   return (
     <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-      {children}
+      <AuthProvider>{children}</AuthProvider>
     </ThemeProvider>
   );
 }
