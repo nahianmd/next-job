@@ -4,7 +4,6 @@ import { useJobFilters } from '@/hooks/useJobFilters';
 import { ExperienceLevel, JobType, WorkLocation } from '@/types/job';
 import { FilterCarousel } from '@/components/FilterCarousel';
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Card, CardContent } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
 import { cn } from '@/lib/utils';
 import { formatEnumToOptions } from '@/utils/helper';
@@ -52,48 +51,44 @@ export default function JobFilters() {
   const experienceOptions = formatEnumToOptions(ExperienceLevel);
 
   return (
-    <Card className="mb-6 border-0 shadow-0">
-      <CardContent className="pt-6">
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <FilterSelect
-            placeholder={'Select Job Type'}
-            label="Job Type"
-            value={filters.jobType}
-            options={jobTypeOptions}
-            onChange={(value) => updateFilter('jobType', value)}
-            disabled={isPending}
-          />
+    <div className="pt-0 mb-6">
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <FilterSelect
+          placeholder={'Select Job Type'}
+          label="Job Type"
+          value={filters.jobType}
+          options={jobTypeOptions}
+          onChange={(value) => updateFilter('jobType', value)}
+          disabled={isPending}
+        />
 
-          <FilterSelect
-            placeholder={'Select Location'}
-            label="Location"
-            value={filters.workLocation}
-            options={locationOptions}
-            onChange={(value) => updateFilter('workLocation', value)}
-            disabled={isPending}
-          />
+        <FilterSelect
+          placeholder={'Select Location'}
+          label="Location"
+          value={filters.workLocation}
+          options={locationOptions}
+          onChange={(value) => updateFilter('workLocation', value)}
+          disabled={isPending}
+        />
 
-          <FilterSelect
-            placeholder={'Select Experience Level'}
-            label="Experience Level"
-            value={filters.experienceLevel}
-            options={experienceOptions}
-            onChange={(value) => updateFilter('experienceLevel', value)}
-            disabled={isPending}
-          />
+        <FilterSelect
+          placeholder={'Select Experience Level'}
+          label="Experience Level"
+          value={filters.experienceLevel}
+          options={experienceOptions}
+          onChange={(value) => updateFilter('experienceLevel', value)}
+          disabled={isPending}
+        />
+      </div>
+
+      {isPending && (
+        <div className="mt-4 flex items-center gap-2">
+          <Skeleton className="h-4 w-4 rounded-full" />
+          <span className="text-sm text-muted-foreground">Updating results...</span>
         </div>
+      )}
 
-        {isPending && (
-          <div className="mt-4 flex items-center gap-2">
-            <Skeleton className="h-4 w-4 rounded-full" />
-            <span className="text-sm text-muted-foreground">Updating results...</span>
-          </div>
-        )}
-
-        <div className="mt-4">
-          <FilterCarousel filters={filters} action={updateFilter} />
-        </div>
-      </CardContent>
-    </Card>
+      <div className="mt-4">{Object.entries(filters).length > 0 && <FilterCarousel filters={filters} action={updateFilter} />}</div>
+    </div>
   );
 }

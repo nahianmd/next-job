@@ -65,6 +65,14 @@ export function FilterCarousel({ filters, action }: Props) {
 
             return <RoundChip key={key} label={toTitleCase(value.replace(/_/g, ' '))} onRemove={() => removeFilter(key)} />;
           })}
+          <Button
+            onClick={() => {
+              Object.entries(filters).forEach(([key, value]) => action(key, ''));
+            }}
+            variant={'link'}
+          >
+            Clear All
+          </Button>
         </div>
       </div>
     </div>

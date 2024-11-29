@@ -39,7 +39,7 @@ export default function Navbar() {
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end items-center">
-            <a href="#" className="text-sm/6 font-semibold ">
+            <a href="/login" className="text-sm/6 font-semibold ">
               Log in <span aria-hidden="true">&rarr;</span>
             </a>
             <ModeToggle />
